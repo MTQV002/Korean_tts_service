@@ -1,0 +1,11 @@
+{
+	"id": "korean-dictionary-anki",
+	"name": "Korean Dictionary - Modern Kawaii Edition",
+	"version": "2.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Từ điển tiếng Hàn thông minh với giao diện kawaii thân thiện, Google TTS chất lượng đủ và tích hợp xuất sang Anki - Made with 💕",
+	"author": "Korean Dictionary Team",
+	"authorUrl":  "https://github.com/quocvinhx2101-ctrl/Korean-dictionary",
+	"isDesktopOnly": false,
+	"main": "main.js"
+}
