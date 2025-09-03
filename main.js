@@ -2,8 +2,8 @@ const { Plugin, PluginSettingTab, Modal, ItemView, WorkspaceLeaf, Setting, Notic
 
 const DICTIONARY_VIEW_TYPE = 'dictionary-view';
 
-// Production Korean TTS Service URL - Railway.app (FREE)
-const KOREAN_SERVICE_URL = 'https://korean-tts-service-production.up.railway.app';
+// Production Korean TTS Service URL - Vercel (FREE)
+const KOREAN_SERVICE_URL = 'https://korean-tts-service.vercel.app';
 const KOREAN_SERVICE_BASE = KOREAN_SERVICE_URL || 'http://localhost:6790';
 
 const DEFAULT_SETTINGS = {
