@@ -1,51 +1,126 @@
-# 🚀 Deploy Korean TTS Service - Railway.app
+# 🚀 Deploy Korean TTS Service - 100% FREE Options
 
-## 🎯 Railway.app - 100% FREE & No Payment Method Required!
+## ⚠️ UPDATE: Hosting Platforms Changes
+- Railway: 30 days trial → requires payment
+- Render: Still FREE with limitations (sleeps 15min)
+- Fly.io: Requires payment method
 
-### ✅ Why Railway.app?
-- 🆓 **Completely FREE** - No credit card needed
-- 🚀 **512MB RAM** - More than enough for TTS service  
-- ⏰ **Never sleeps** - Always online
-- 🔄 **Auto-deploy** - Push to GitHub = instant deploy
-- 🌍 **Global CDN** - Fast worldwide access
+## 🆓 100% FREE Alternatives (Forever):
+
+### 🥇 **Option 1: GitHub Pages + Vercel** (RECOMMENDED)
+- ✅ **Completely FREE forever**
+- ✅ **No credit card needed**
+- ✅ **Global CDN**
+- ✅ **Custom domain support**
+
+### 🥈 **Option 2: Netlify**
+- ✅ **100GB bandwidth/month FREE**
+- ✅ **No sleep mode**
+- ✅ **GitHub integration**
+
+### 🥉 **Option 3: Render.com (with limitations)**
+- ✅ **FREE tier available**
+- ⚠️ **Sleeps after 15min** (wakes in 30s)
+- ✅ **512MB RAM**
+
+### 🏆 **Option 4: Self-hosting trên VPS miễn phí**
+- ✅ **Oracle Cloud Free Tier** (Forever free)
+- ✅ **Google Cloud $300 credit**
+- ✅ **AWS Free Tier** (12 months)
 
 ---
 
-## 🚀 Step-by-Step Deployment
+## 🚀 OPTION 1: Vercel (RECOMMENDED - Forever FREE)
 
-### Step 1: Push to GitHub
+### Why Vercel?
+- 🆓 **100% FREE forever** - No trial limitations
+- 🚀 **Serverless functions** - Auto-scaling
+- 🌍 **Global edge network** - Super fast
+- 📊 **100GB bandwidth/month** - More than enough
+- � **Auto-deploy from GitHub** - Push = deploy
+
+### Step 1: Update GitHub repo
 ```bash
 cd /run/media/qv/S/VProject/Korean/
-git init
-git add .
-git commit -m "Korean TTS Service for Railway"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/korean-tts-service.git
-git push -u origin main
+git add vercel.json korean_vercel_service.py
+git commit -m "Add Vercel deployment config"
+git push
 ```
 
-### Step 2: Deploy on Railway
-1. Go to [Railway.app](https://railway.app)
-2. **Login with GitHub** (no signup needed)
-3. **New Project** → **Deploy from GitHub repo**
-4. Choose your `korean-tts-service` repo
-5. **Deploy** button
-6. Wait 3-5 minutes for build
-7. Copy your URL: `https://your-app-name.up.railway.app`
+### Step 2: Deploy on Vercel
+1. Go to [Vercel.com](https://vercel.com)
+2. **Sign up with GitHub** (free account)
+3. **New Project** → **Import Git Repository**
+4. Choose `Korean_tts_service` repo
+5. **Deploy** → Wait 2-3 minutes
+6. Get URL: `https://korean-tts-service-xxx.vercel.app`
 
-### Step 3: Update Plugin URL
-Replace URL in `main.js`:
+### Step 3: Update main.js
 ```javascript
-const KOREAN_SERVICE_URL = 'https://your-actual-railway-url.up.railway.app';
+const KOREAN_SERVICE_URL = 'https://korean-tts-service-xxx.vercel.app';
 ```
 
-### Step 4: Test Service
+**DONE! Service live forever FREE! 🎉**
+
+---
+
+## 🚀 OPTION 2: Netlify (Alternative FREE)
+
+### Step 1: Create Netlify config
 ```bash
-curl https://your-railway-url.up.railway.app/health
-# Should return: {"status": "OK", "service": "Korean TTS"}
+# Create netlify.toml
+echo '[build]
+  command = "pip install -r requirements.txt"
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200' > netlify.toml
 ```
 
-**DONE! 🎉**
+### Step 2: Deploy
+1. Go to [Netlify.com](https://netlify.com)
+2. **New site from Git**
+3. Choose GitHub repo
+4. **Deploy**
+
+---
+
+## 🆓 OPTION 3: Oracle Cloud (Forever FREE VPS)
+
+### Why Oracle Cloud?
+- 🆓 **Forever FREE** - No time limits
+- 🖥️ **1GB RAM + 1 OCPU** - More than enough
+- 🌍 **Multiple regions** - Choose closest
+- 💾 **10GB storage** - Plenty for service
+
+### Quick Setup:
+1. **Sign up**: [Oracle Cloud Free](https://cloud.oracle.com/free)
+2. **Create VM** → Always Free eligible
+3. **SSH + Docker** → Deploy container
+4. **Open ports** → 80, 443
+
+---
+
+## 💰 Cost Comparison (Updated)
+
+| Platform | Cost | RAM | Sleep | Build | Limits |
+|----------|------|-----|--------|-------|--------|
+| **Vercel** | FREE | Serverless | Never | 1min | 100GB/month |
+| **Netlify** | FREE | Serverless | Never | 2min | 100GB/month |
+| **Oracle** | FREE | 1GB | Never | 5min | Forever |
+| **Railway** | $5/month | 512MB | Never | 3min | After trial |
+| **Render** | FREE* | 512MB | 15min | 5min | Sleep mode |
+
+*Render FREE có giới hạn sleep
+
+## 🎯 New Recommendation
+
+**Use Vercel** - Easiest setup, forever free, no limitations!
 
 ---
 
