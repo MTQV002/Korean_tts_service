@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Simple Korean TTS Service - Google TTS Only
-Clean and reliable Korean Text-to-Speech for Fly.io deployment
+Korean Simple TTS Service - Production Version
+Clean and reliable Korean Text-to-Speech for Vercel deployment
+Only Google TTS for maximum compatibility and legal safety
 """
 
 import requests
@@ -20,7 +21,7 @@ CORS(app)
 def korean_audio_info():
     """
     Get Korean audio info - Google TTS Only
-    Production version for Fly.io deployment
+    Production version for Vercel deployment
     """
     try:
         data = request.get_json()
@@ -177,13 +178,13 @@ def korean_audio():
 
 @app.route('/health')
 def health():
-    """Health check endpoint for Fly.io"""
+    """Health check endpoint for Vercel"""
     return jsonify({
         'status': 'healthy',
         'service': 'Korean Simple TTS',
         'features': ['google_tts_only', 'auto_download', 'korean_filename'],
         'version': '2.1-production',
-        'platform': 'fly.io'
+        'platform': 'vercel'
     })
 
 @app.route('/')
@@ -198,11 +199,11 @@ def index():
             'health': '/health (GET)'
         },
         'status': 'running',
-        'platform': 'fly.io'
+        'platform': 'vercel'
     })
 
 if __name__ == '__main__':
-    # Get port from environment variable (Fly.io sets this)
+    # Get port from environment variable (Vercel sets this)
     port = int(os.environ.get('PORT', 6790))
     
     print("🚀 Starting Korean Simple TTS Service (Production)")
